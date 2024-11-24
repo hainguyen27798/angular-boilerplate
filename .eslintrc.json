@@ -1,12 +1,19 @@
 {
   "root": true,
-  "ignorePatterns": ["dist/*", "node_modules/*", "public/*"],
+  "ignorePatterns": ["dist/*", "node_modules/*", "public/*", "*.config.js"],
   "overrides": [
     {
       "files": ["*.{ts,js}"],
-      "plugins": ["@typescript-eslint", "prettier", "unused-imports", "simple-import-sort"],
+      "plugins": [
+        "@typescript-eslint",
+        "prettier",
+        "unused-imports",
+        "simple-import-sort",
+        "tailwindcss"
+      ],
       "extends": [
         "eslint:recommended",
+        "plugin:tailwindcss/recommended",
         "plugin:prettier/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
@@ -46,13 +53,13 @@
     },
     {
       "files": ["*.html"],
+      "plugins": ["tailwindcss"],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
-        "plugin:@angular-eslint/template/accessibility"
+        "plugin:@angular-eslint/template/accessibility",
+        "plugin:tailwindcss/recommended"
       ],
-      "rules": {
-        "@angular-eslint/template/no-negated-async": "off"
-      }
+      "rules": {}
     }
   ]
 }
